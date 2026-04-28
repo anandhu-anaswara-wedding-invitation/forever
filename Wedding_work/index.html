@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="spinner-ring"></div>
+            <img src="./assets/wedding_logo.webp" alt="Wedding Logo" class="center-logo">
+        </div>
+        <p class="loading-text">Forever starts soon...</p>
+    </div>
+    <main id="main-content">
+        <!-- Hero section -->
+        <section id="home" class="hero-section">
+            <div class="hero-image-frame">
+                <img src="./assets/wedding_image.webp" class="hero-image" alt="">
+            </div>
+            <div class="hero-text">
+                <h2 class="hero-subtitle">The Wedding of</h2>
+                <h1 class="hero-title">Anandhu &amp; Anaswara</h1>
+                <p class="invitation-script">"Once in a while, right in the middle of an ordinary life, love gives us
+                    a
+                    fairy tale. Join us as we begin our <span class="highlight-text">'Happily Ever After'."</span></p>
+                <div class="divider-ornament bottom">
+                    <span class="line"></span>
+                    <i class="fas fa-leaf"></i>
+                    <span class="line"></span>
+                </div>
+                <div class="hero-cta-group">
+                    <a href="#invitation" class="btn btn-magenda"><i class="fas fa-envelope-open-text"></i> View
+                        Invitation</a>
+                    <a href="#ceremony" class="btn btn-outline-magenda"><i class="fas fa-calendar-alt"></i> Ceremony
+                        Details</a>
+                </div>
+            </div>
+        </section>
+        <section id="invitation" class="hero-section">
+            <div class="divider-ornament">
+                <span class="line"></span>
+                <i class="fas fa-crown"></i>
+                <span class="line"></span>
+            </div>
+            <h2 class="hero-subtitle bottom">Save the Date</h2>
+            <p class="invitation-script">We invite you to join us in the celebration of love, laughter, and the
+                beginning of our new life together as
+            </p>
+            <div class="invitation-names">
+                <span class="name">Anandhu</span>
+                <span class="and">&amp;</span>
+                <span class="name">Anaswara</span>
+            </div>
+            <p class="main-invite-date">May 31, 2026 Sunday</p>
+            <div class="divider-ornament bottom top">
+                <span class="line"></span>
+                <i class="fas fa-heart" style="opacity: 0.5;"></i>
+                <span class="line"></span>
+            </div>
+            <p class="invitation-script">
+                Together with our parents,<br>
+                we request the honor of your presence<br>
+                on this special day.
+            </p>
+            <div class="countdown-badge">
+                <div class="time-part">
+                    <span id="days"></span>
+                    <small>Days</small>
+                </div>
+                <div class="time-part">
+                    <span id="hours"></span>
+                    <small>Hours</small>
+                </div>
+                <div class="time-part">
+                    <span id="minutes"></span>
+                    <small>Mins</small>
+                </div>
+                <div class="time-part">
+                    <span id="seconds"></span>
+                    <small>Secs</small>
+                </div>
+            </div>
+            <div class="divider-ornament top bottom">
+                <span class="line"></span>
+                <i class="fas fa-leaf"></i>
+                <span class="line"></span>
+            </div>
+            <a id="autoDownloadBtn" href="./assets/anandhu_anaswara_wedding_invitation.pdf"
+                download="Anandhu_Anaswara_Wedding.pdf" target="_blank" rel="noopener noreferrer"
+                class="btn btn-download btn-magenda"><i class="fas fa-download"></i></i>
+                Download Invitation Card</a>
+        </section>
+        <section id="ceremeony">
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
