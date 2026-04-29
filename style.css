@@ -1,0 +1,745 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-anchor: none;
+    scroll-behavior: smooth;
+}
+
+/* 1. Target the root and the body */
+html,
+body {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Old Edge */
+}
+
+/* 2. Target Chrome, Safari, and newer Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* 3. Extra safety: hide the track and thumb specifically */
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+/* Page Background */
+body {
+    margin: 0;
+    background-color: #fae0e4;
+    font-family: 'Arial', sans-serif;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Preloader Screen */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fae0e4;
+    /* Matching the logo's black background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Always on top */
+    transition: opacity 0.5s ease, visibility 0.5s;
+
+}
+
+/* Container for Logo + Ring */
+.loader-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Animated Spinner Ring */
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid transparent;
+    border-top: 4px solid #ff477e;
+    /* Metallic Gold color */
+    border-right: 4px solid #ff477e;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+/* The Static Logo */
+.center-logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* Loading Text Styling */
+.loading-text {
+    color: #ff0a54;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Animation Keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hidden Class (applied via JS) */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#main-content {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#home {
+    /* Ensures the main content starts exactly at the top */
+    position: relative;
+    top: 0;
+}
+
+#home,
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    background-color: white;
+    max-width: 80vw;
+    margin-bottom: 80px;
+    border-radius: 20PX;
+
+}
+
+.hero-image-frame {
+    width: 250px;
+    height: 350px;
+    border-radius: 140px 140px 0 0;
+    overflow: hidden;
+    border: 8px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    position: relative;
+    max-width: 90%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-subtitle,
+.and {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #880e4f;
+    /* Using that Royal Plum we liked */
+    font-weight: 400;
+}
+
+/* 2. For the Names "Shanto & Anju" (The Serif) */
+.hero-title {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #ff0a54;
+    /* Earthy Espresso */
+}
+
+.invitation-script {
+    font-family: 'Playfair Display', serif;
+    max-width: 565px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    /* Earthy Espresso */
+    margin: 0 auto 30px auto;
+}
+
+.highlight-text {
+    font-weight: 700;
+    color: #ff0a54;
+    /* Antique Gold */
+    font-style: normal;
+}
+
+.divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+    color: #ff0a54;
+}
+
+.divider-ornament .line {
+    display: inline-block;
+    height: 1px;
+    width: 20vw;
+    /* Adjust length as needed */
+    /* Using a gradient makes the lines fade out at the edges for a premium look */
+    background: linear-gradient(to right, transparent, #ff0a54, transparent);
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    /* This stacks buttons on top of each other on small phones */
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    cursor: pointer;
+    border: none;
+    min-width: 160px;
+}
+
+.btn-outline-magenda {
+    background: transparent;
+    border: 1px solid #D81B60;
+    /* Using the more elegant Deep Rose */
+    color: #D81B60;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    transition: all 0.4s ease;
+    /* Smooth transition for a "fairy tale" feel */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* The Hover Reversal */
+.btn-outline-magenda:hover {
+    background-color: #D81B60;
+    /* Fills in with color */
+    color: #ffffff;
+    /* Text turns white */
+}
+
+.btn-magenda {
+    background-color: #D81B60;
+    /* More elegant Deep Rose */
+    color: #ffffff;
+    border: 2px solid #D81B60;
+    /* Keeps the button shape on hover */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    /* Smoothly fades the color swap */
+    cursor: pointer;
+}
+
+/* The Hover Effect */
+.btn-magenda:hover {
+    background-color: transparent;
+    /* Makes the background "white" or match the page */
+    color: #D81B60;
+    /* Text turns magenta */
+}
+
+.invitation-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: #ff0a54;
+    /* Using that Royal Plum we liked */
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-invite-date {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    color: #880e4f;
+    font-size: 1.5rem;
+    font-weight: 510;
+}
+
+.countdown-badge {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: nowrap;
+    width: 50%;
+}
+
+.time-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 100px;
+    padding: 20px 10px;
+    background: #fae0e4;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.time-part span {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ff0a54;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.time-part small {
+    color: #666;
+}
+
+.bottom {
+    margin-bottom: 30px;
+}
+
+.top {
+    margin-top: 30px;
+}
+
+#ceremony {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 80px;
+    width: 100%;
+
+}
+
+.details-cards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.details-cards-1 {
+    background-color: #fae0e4;
+    padding: 30px;
+    color: #ff0a54;
+    border-radius: 15px;
+    text-align: left;
+    max-width: 600px;
+    /* min-width: 400px; */
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    background: white;
+    /* border: 1px solid #880e4f; */
+    color: #ff0a54;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.card-content {
+    line-height: 1.6;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    color: #880e4f;
+    font-weight: 400;
+}
+
+.card-date {
+    color: #880e4f;
+
+}
+
+.card-action-btn {
+    /* display: inline-block; */
+    color: #880e4f;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #880e4f;
+    margin-top: 10px;
+}
+
+/* Matching the Residence card style exactly */
+.contact-section {
+    padding: 60px 20px 100px;
+    /* Extra bottom padding for the nav bar */
+    text-align: center;
+    width: 80vw
+}
+
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #880e4f;
+}
+
+.contact-card-v2 {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-left {
+    text-align: left;
+}
+
+.contact-info-left h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #880e4f;
+    margin-bottom: 4px;
+}
+
+.contact-info-left p {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-icon-right {
+    width: 40px;
+    height: 40px;
+    background-color: #fae0e4;
+    /* Light pink background for icon */
+    color: #ff0a54;
+    /* Darker pink for icon */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-icon-right:hover {
+    background-color: #ff0a54;
+    color: #ffffff;
+}
+
+.music-circle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 2px solid #fae0e4;
+    border-radius: 50%;
+
+    /* 1. Set this to none so it starts invisible */
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #ff0a54;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 2. Add a fade animation for a smooth appearance */
+.fade-in-music {
+    animation: musicFadeIn 0.8s ease forwards;
+}
+
+@keyframes musicFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.music-circle {
+    /* ... keep your other styles ... */
+    display: none;
+    /* Change this from flex to none */
+    position: fixed;
+    z-index: 10001;
+}
+
+
+
+.nav-container {
+    position: fixed;
+    bottom: 25px;
+    /* Creates that floating gap from the bottom */
+    left: 0;
+    right: 0;
+    display: none;
+    /* Hidden during loading, revealed by JS */
+    justify-content: center;
+    z-index: 1000;
+}
+
+.nav-pill {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    max-width: 450px;
+    padding: 10px 5px;
+    border-radius: 50px;
+    /* Makes it a pill shape */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* Soft shadow like the image */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #a0a0a0;
+    /* Gray for inactive icons */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    transition: 0.3s ease;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+}
+
+.nav-link span {
+    font-size: 0.65rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: 500;
+}
+
+/* Active Style (The icon currently selected) */
+.nav-link.active {
+    color: #880e4f;
+    /* Matches your theme's deep plum/magenta */
+}
+
+
+
+
+.site-footer {
+    background-color: #fcf4f5;
+    /* Very light pink/white background */
+    padding: 60px 20px 140px;
+    /* Extra bottom padding for the nav bar */
+    text-align: center;
+    width: 100vw;
+}
+
+.footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #880e4f;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.footer-div {
+    margin: 15px 0;
+    opacity: 0.6;
+}
+
+.footer-div .line {
+    width: 40px !important;
+    /* Smaller lines for the footer divider */
+}
+
+.footer-date {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.footer-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #888;
+}
+
+
+
+
+
+
+/* Media Query for Mobile Devices (400px and below) */
+@media screen and (max-width: 400px) {
+
+    /* 1. Force Single Column Layout */
+    #main-content,
+    .hero-section,
+    .details-cards-grid,
+    .container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 2. Shrink Individual Sections */
+    .hero-section {
+        padding: 40px 15px !important;
+        margin-bottom: 40px !important;
+    }
+
+    /* 3. Global Font & Spacing Shrink */
+    h1,
+    .hero-title {
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    h2,
+    .hero-subtitle {
+        font-size: 2rem !important;
+    }
+
+    .invitation-script,
+    p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .invitation-names {
+        font-size: 3.5rem !important;
+    }
+
+    /* 4. Shrink Images & Frames */
+    .hero-image-frame {
+        width: 180px !important;
+        height: 260px !important;
+    }
+
+    /* 5. Details Cards (Force full width but single column) */
+    .details-cards-1,
+    .contact-card-v2 {
+        width: 95% !important;
+        flex-direction: column !important;
+        /* Icon on top of text */
+        text-align: center !important;
+        padding: 20px !important;
+        gap: 15px !important;
+    }
+
+    /* 6. Navigation Bar Shrink */
+    .nav-pill {
+        width: 95% !important;
+        padding: 8px 5px !important;
+    }
+
+    .nav-link span {
+        font-size: 0.6rem !important;
+    }
+
+    /* 7. Ensure Dividers don't overflow */
+    .divider-ornament .line {
+        width: 15vw !important;
+    }
+}
